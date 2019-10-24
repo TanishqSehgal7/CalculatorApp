@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:background="@android:color/holo_orange_light">
+    android:background="@android:color/darker_gray">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -19,28 +19,37 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <EditText
-            android:id="@+id/number1"
+        <TextView
+            android:id="@+id/tv1"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="110dp"
             android:textFontWeight="2000"
             android:textSize="30dp"/>
 
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:textFontWeight="2000"
+            android:textSize="30dp"/>
 
     </LinearLayout>
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp">
 
+
+
         <Button
-            android:id="@+id/btn1"
+            android:onClick="equalSmash"
+            android:text="@string/equal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="10"
             android:background="@android:color/background_dark"
-            android:text="="
             android:textFontWeight="2000"
             android:textSize="70dp"
             android:textColor="@android:color/holo_orange_light"/>
@@ -54,53 +63,59 @@
         android:paddingRight="15dp">
 
         <Button
-            android:id="@+id/plusBtn"
+            android:onClick="operatorPress"
             android:layout_width="80dp"
             android:layout_height="80dp"
-           android:layout_weight="10"
+            android:layout_weight="10"
             android:background="@android:color/background_dark"
-            android:text="+"
+            android:text="@string/add"
             android:textFontWeight="2000"
             android:textColor="@android:color/holo_orange_light"
+            android:textSize="40dp"
+            android:padding="10dp"/>
+
+        <Button
+            android:onClick="operatorPress"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="@string/sub"
+            android:textFontWeight="2000"
+            android:textSize="40dp"
+            android:layout_marginStart="5dp"
+            android:layout_weight="10"
+            android:background="@android:color/background_dark"
+            android:textColor="@android:color/holo_orange_light"/>
+
+        <Button
+            android:onClick="operatorPress"
+            android:layout_width="82dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="5dp"
+            android:layout_weight="10"
+            android:background="@android:color/background_dark"
+            android:text="@string/multi"
+            android:textColor="@android:color/holo_orange_light"
+            android:textFontWeight="2000"
             android:textSize="40dp" />
-
         <Button
-            android:id="@+id/subtractBtn"
+            android:onClick="operatorPress"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:text="-"
+            android:text="@string/divide"
             android:textFontWeight="2000"
             android:textSize="40dp"
-            android:layout_weight="10"
-            android:background="@android:color/background_dark"
-            android:textColor="@android:color/holo_orange_light"/>
-            <Button
-                android:id="@+id/multiplyBtn"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:text="x"
-                android:textFontWeight="2000"
-                android:textSize="40dp"
-                android:layout_weight="10"
-                android:textColor="@android:color/holo_orange_light"
-                android:background="@android:color/background_dark"/>
-        <Button
-            android:id="@+id/divideBtn"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:text="/"
-            android:textFontWeight="2000"
-            android:textSize="40dp"
+            android:layout_marginStart="5dp"
             android:layout_weight="10"
             android:background="@android:color/background_dark"
             android:textColor="@android:color/holo_orange_light"/>
 
         <Button
-            android:id="@+id/buttonroot"
+            android:onClick="operatorPress"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_weight="10"
-            android:text="√"
+            android:text="@string/root"
+            android:layout_marginStart="5dp"
             android:textSize="40dp"
             android:background="@android:color/background_dark"
             android:textColor="@android:color/holo_orange_light"/>
@@ -115,55 +130,68 @@
         android:paddingRight="15dp">
 
         <Button
-            android:id="@+id/btn9"
+
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="10"
-            android:background="@android:color/darker_gray"
-            android:text="7"
+            android:background="@android:color/black"
+            android:textSize="40dp"
+            android:onClick="pressnum"
+            android:text="@string/seven"
+            android:textColor="@android:color/holo_orange_light"/>
+
+        <Button
+
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_weight="10"
+            android:layout_marginTop="5dp"
+            android:text="@string/eight"
+            android:layout_marginStart="5dp"
+            android:onClick="pressnum"
+            android:background="@android:color/black"
+            android:textColor="@android:color/holo_orange_light"
             android:textSize="40dp" />
 
         <Button
-            android:id="@+id/btn8"
+
             android:layout_width="80dp"
             android:layout_height="80dp"
-           android:layout_weight="10"
-            android:layout_marginTop="20dp"
-            android:text="8"
-            android:background="@android:color/darker_gray"
-            android:textSize="40dp" />
-        <Button
-            android:id="@+id/btn7"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="10"
-            android:text="9"
-            android:background="@android:color/darker_gray"
-            android:textSize="40dp"/>
+            android:text="@string/nine"
+            android:layout_marginStart="5dp"
+            android:onClick="pressnum"
+            android:background="@android:color/black"
+            android:textSize="40dp"
+            android:textColor="@android:color/holo_orange_light"/>
+
+
 
         <Button
-            android:id="@+id/btnC"
+            android:onClick="operatorPress"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_weight="10"
-            android:layout_marginTop="20dp"
-            android:background="@android:color/holo_red_dark"
-            android:textColor="@android:color/black"
-            android:text="C"
-            android:textSize="40dp">
-        </Button>
-        <Button
-            android:id="@+id/btnPercent"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="10"
             android:background="@android:color/background_dark"
             android:textColor="@android:color/holo_orange_light"
-            android:text="%"
+            android:text="@string/mod"
+            android:layout_marginStart="5dp"
             android:textSize="40dp"/>
+    <Button
+        android:onClick="allClear"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_weight="10"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/holo_orange_light"
+        android:textColor="@android:color/black"
+        android:text="@string/allClear"
+        android:layout_marginStart="5dp"
+        android:textSize="40dp">
+    </Button>
 
     </LinearLayout>
     <LinearLayout
@@ -172,51 +200,61 @@
         android:paddingLeft="15dp"
         android:paddingRight="15dp">
         <Button
-            android:id="@+id/btn6"
+
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="10"
-            android:text="4"
-            android:background="@android:color/darker_gray"
-            android:textSize="40dp"/>
+            android:text="@string/four"
+            android:onClick="pressnum"
+            android:background="@android:color/black"
+            android:textSize="40dp"
+            android:textColor="@android:color/holo_orange_light"/>
         <Button
-            android:id="@+id/btn5"
+
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="10"
-            android:background="@android:color/darker_gray"
-            android:text="5"
+            android:background="@android:color/black"
+            android:text="@string/five"
+            android:onClick="pressnum"
+            android:layout_marginStart="5dp"
+            android:textColor="@android:color/holo_orange_light"
             android:textSize="40dp"/>
         <Button
-            android:id="@+id/btn4"
+
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="10"
-            android:text="6"
-            android:background="@android:color/darker_gray"
-            android:textSize="40dp"/>
+            android:text="@string/six"
+            android:onClick="pressnum"
+            android:layout_marginStart="5dp"
+            android:background="@android:color/black"
+            android:textSize="40dp"
+            android:textColor="@android:color/holo_orange_light"/>
+
         <Button
-            android:id="@+id/btnPT"
+
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="10"
             android:background="@android:color/background_dark"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="20dp"
-            android:layout_weight="10"
             android:text="."
+            android:layout_marginStart="5dp"
             android:textColor="@android:color/holo_orange_light"
-            android:textSize="40dp">
-        </Button>
+            android:textSize="40dp"></Button>
 
         <Button
-            android:id="@+id/btnSQ"
+            android:onClick="operatorPress"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_weight="10"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:text="x^2"
+            android:layout_marginStart="5dp"
             android:background="@android:color/background_dark"
             android:textColor="@android:color/holo_orange_light"
             android:textSize="38dp" />
@@ -231,56 +269,65 @@
         android:paddingRight="15dp">
 
         <Button
-            android:id="@+id/btn3"
+
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="10"
-            android:background="@android:color/darker_gray"
+            android:background="@android:color/black"
             android:text="1"
-            android:textSize="40dp" />
+            android:onClick="pressnum"
+            android:textSize="40dp"
+            android:textColor="@android:color/holo_orange_light"/>
 
         <Button
-            android:id="@+id/btn2"
+
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="10"
-            android:background="@android:color/darker_gray"
+            android:background="@android:color/black"
             android:text="2"
+            android:onClick="pressnum"
+            android:layout_marginStart="5dp"
+            android:textColor="@android:color/holo_orange_light"
             android:textSize="40dp" />
 
         <Button
-            android:id="@+id/btn1D"
+
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="10"
-            android:background="@android:color/darker_gray"
+            android:background="@android:color/black"
             android:text="3"
+            android:onClick="pressnum"
+            android:textColor="@android:color/holo_orange_light"
             android:textSize="40dp" />
 
         <Button
-
-            android:id="@+id/btn0"
+            android:onClick="pressnum"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="10"
             android:background="@android:color/background_dark"
-            android:text="0"
+            android:text="@string/zero"
             android:textColor="@android:color/holo_orange_light"
+            android:layout_marginStart="5dp"
             android:textSize="40dp"></Button>
 
         <Button
-            android:id="@+id/btnReciprocal"
+            android:onClick="operatorPress"
+            android:text="@string/inverse"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginTop="20dp"
             android:layout_weight="10"
+            android:layout_marginTop="5dp"
             android:background="@android:color/background_dark"
-            android:text="1/x"
+            android:layout_marginStart="5dp"
             android:textColor="@android:color/holo_orange_light"
-            android:textSize="40dp" />
+            android:textSize="40dp"/>
     </LinearLayout>
 </LinearLayout>
