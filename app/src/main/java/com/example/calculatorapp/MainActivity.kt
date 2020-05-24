@@ -6,10 +6,11 @@ import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 import net.objecthunter.exp4j.ExpressionBuilder
 import java.lang.Exception
+import kotlin.math.sqrt
+import kotlin.properties.Delegates
 
 
 class MainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         seven.setOnClickListener { appendOnExpression("7",true) }
         eight.setOnClickListener { appendOnExpression("8",true) }
         nine.setOnClickListener { appendOnExpression("9",true) }
-        zero.setOnClickListener { appendOnExpression("10",true) }
+        zero.setOnClickListener { appendOnExpression("0",true) }
         point.setOnClickListener { appendOnExpression(".",true) }
         bracketopen.setOnClickListener { appendOnExpression("(",false) }
         bracketclose.setOnClickListener { appendOnExpression(")",false) }
@@ -31,6 +32,8 @@ class MainActivity : AppCompatActivity() {
         multiply.setOnClickListener { appendOnExpression("*",false) }
         sub.setOnClickListener { appendOnExpression("-",false) }
         add.setOnClickListener { appendOnExpression("+",false) }
+        pow.setOnClickListener { appendOnExpression("^",false) }
+        pi.setOnClickListener { appendOnExpression("3.14",true) }
 
         AC.setOnClickListener {
             input.text=""
@@ -44,6 +47,7 @@ class MainActivity : AppCompatActivity() {
             }
             result.text=""
         }
+
 
         equal.setOnClickListener {
             try {
@@ -79,6 +83,11 @@ class MainActivity : AppCompatActivity() {
             }
 
     }
+
+     fun SQroot(x:Float): Float {
+         val root= sqrt(x)
+         return root
+     }
 }
 
 

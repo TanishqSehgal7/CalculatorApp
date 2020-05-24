@@ -20,4 +20,5 @@
     <string name="equal">=</string>
     <string name="point">.</string>
     <string name="brackets">()</string>
+    <string name="pi">π</string>
 </resources>
