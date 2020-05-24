@@ -2,81 +2,81 @@ package com.example.calculatorapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-//import android.util.Log
-import android.view.View
-import android.widget.Button
-import android.widget.TextView
-import androidx.annotation.IntegerRes
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.ResourceBundle.clearCache
-import kotlin.math.sqrt
+import net.objecthunter.exp4j.ExpressionBuilder
+import java.lang.Exception
+
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        updateText("")
+
+        one.setOnClickListener { appendOnExpression("1",true) }
+        two.setOnClickListener { appendOnExpression("2",true) }
+        three.setOnClickListener { appendOnExpression("3",true) }
+        four.setOnClickListener { appendOnExpression("4",true) }
+        five.setOnClickListener { appendOnExpression("5",true) }
+        six.setOnClickListener { appendOnExpression("6",true) }
+        seven.setOnClickListener { appendOnExpression("7",true) }
+        eight.setOnClickListener { appendOnExpression("8",true) }
+        nine.setOnClickListener { appendOnExpression("9",true) }
+        zero.setOnClickListener { appendOnExpression("10",true) }
+        point.setOnClickListener { appendOnExpression(".",true) }
+        bracketopen.setOnClickListener { appendOnExpression("(",false) }
+        bracketclose.setOnClickListener { appendOnExpression(")",false) }
+        divide.setOnClickListener { appendOnExpression("/",false) }
+        multiply.setOnClickListener { appendOnExpression("*",false) }
+        sub.setOnClickListener { appendOnExpression("-",false) }
+        add.setOnClickListener { appendOnExpression("+",false) }
+
+        AC.setOnClickListener {
+            input.text=""
+            result.text=""
+        }
+
+        backspace.setOnClickListener {
+            val string=input.text.toString()
+            if (string.isNotEmpty()){
+                input.text=string.substring(0,string.length-1)
+            }
+            result.text=""
+        }
+
+        equal.setOnClickListener {
+            try {
+                val inputExpression= ExpressionBuilder(input.text.toString()).build()
+                val finalResult=inputExpression.evaluate()
+                val longFinalResult=finalResult.toLong()
+                if(finalResult==longFinalResult.toDouble()){
+                    result.text=longFinalResult.toString()
+                } else {
+                    result.text=finalResult.toString()
+                }
+            } catch (e:Exception){
+                Log.d("Exception","Invalid"+e.message)
+            }
+        }
 
     }
-    val operationList: MutableList<String> = arrayListOf()
-    val numCache: MutableList<String> = arrayListOf()
 
-    private fun getString(items: List<String>, connect: String=""):String {
-        if(items.isEmpty())
-            return ""
-        return items.reduce { acc, s -> acc+connect+s }
-    }
+    fun appendOnExpression(string:String,canClr:Boolean){
 
-    private fun updateText(mainUIString: String){
-        val calculationString=getString(operationList,"")
-        var calculationTxtView=findViewById<View>(R.id.tv2) as TextView
-        calculationTxtView.text=calculationString
+        if (result.text.isNotEmpty()){
+            result.text=""
+        }
 
-        val ans=findViewById<View>(R.id.tv1) as TextView
-        ans.text=mainUIString
-
-    }
-
-    fun pressnum (view: View){
-        val button = view as Button
-        val numString=button.text
-        numCache.add (numString.toString())
-        val text = getString(numCache)
-        updateText(text)
-
-    }
-
-    fun operatorPress(view: View){
-        val button= view as Button
-        if(numCache.isEmpty())
-            return
-        operationList.add(getString(numCache))
-        numCache.clear()
-        operationList.add(button.text.toString())
-        updateText(button.text.toString())
-
-    }
-
-    private fun clearText(view: View){
-        operationList.clear()
-        numCache.clear()
-    }
-
-    fun allClear (view: View) {
-        clearText(view)
-        updateText("")
-    }
-
-    fun equalSmash (view: View) {
-        operationList.add (getString(numCache))
-        numCache.clear()
-
-        val calculator = ExpressionCalc()
-        val answer = calculator.calculate(operationList)
-
-        updateText("=" + answer.toString())
-        clearCache()
+            if(canClr==true){
+                result.setText("")
+                input.append(string)
+            }
+        else{
+                input.append(result.text)
+                input.append(string)
+                result.append("")
+            }
 
     }
 }
