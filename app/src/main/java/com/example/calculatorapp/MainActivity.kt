@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         add.setOnClickListener { appendOnExpression("+",false) }
         pow.setOnClickListener { appendOnExpression("^",false) }
         pi.setOnClickListener { appendOnExpression("3.14",true) }
+        SQroot.setOnClickListener { appendOnExpression("^(1/2)",false) }
 
         AC.setOnClickListener {
             input.text=""
@@ -83,11 +84,6 @@ class MainActivity : AppCompatActivity() {
             }
 
     }
-
-     fun SQroot(x:Float): Float {
-         val root= sqrt(x)
-         return root
-     }
 }
 
 
