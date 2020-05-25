@@ -21,5 +21,6 @@
     <string name="point">.</string>
     <string name="brackets">()</string>
     <string name="pi">π</string>
-    <string name="squareroot"> √ </string>
+    <string name="squareroot">√</string>
+    <string name="square">^2</string>
 </resources>

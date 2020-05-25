@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         pow.setOnClickListener { appendOnExpression("^",false) }
         pi.setOnClickListener { appendOnExpression("3.14",true) }
         SQroot.setOnClickListener { appendOnExpression("^(1/2)",false) }
+        square.setOnClickListener{ appendOnExpression("^2",false)}
 
         AC.setOnClickListener {
             input.text=""
